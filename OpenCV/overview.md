@@ -1,7 +1,7 @@
-#learning OpenCV overview
+# learning OpenCV overview
 
-1. go trough chapter 1-5
-Chapters 18 and 19 (which cover camera calibration and stereo imaging) and Chapters 20, 21, and 22 (which cover machine learning)
+	go trough chapter 1-5
+	Chapters 18 and 19 (which cover camera calibration and stereo imaging) and Chapters 20, 21, and 22 (which cover machine learning)
 
 ML值得一本新的书去学
   
@@ -42,9 +42,9 @@ The next problem facing computer vision is noise. -> 边缘检测在统计情况
 
 
 
-#CH2.intro to OpenCV
+# CH2.intro to OpenCV
 
-##display a image:
+## display a image:
 read from a wide array of image/video/cameras
 
 opencv functions live within **cv** (namespace)
