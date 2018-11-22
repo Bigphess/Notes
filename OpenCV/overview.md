@@ -62,4 +62,17 @@ opencv functions live within ***cv*** (namespace) -> can use **using namespace c
   
 * use <opencv2/opencv.hpp> -> general include
 * use "opencv2/highgui/highgui.hpp" -> only the neceaaary file to improve the time
+  
+*cv::imread()* is a high-level routine that determines the file format to be loaded based on the filename -> return a cv::Mat
+  
+
+*img.empty()* -> true/false
+
+*cv::namedWindow( "Example1", cv::WINDOW_AUTOSIZE );* 
+* 0 -> true size
+* WINDOW_AUTOSIZE -> to fit the window
+  
+*imshow("name",img)* -> crreate a window(if not created) & show the img
+  
+*cv::waitKey( 0 );* -> stop and wait for key
 
