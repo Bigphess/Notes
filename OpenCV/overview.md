@@ -46,7 +46,20 @@ The next problem facing computer vision is noise. -> 边缘检测在统计情况
 
 ## display a image:
 read from a wide array of image/video/cameras
-
-opencv functions live within **cv** (namespace)
-
+  
+opencv functions live within ***cv*** (namespace) -> can use **using namespace cv**
+  
+	#include <opencv2/opencv.hpp> //Include file for every supported OpenCV function
+	int main( int argc, char** argv ) {
+	  cv::Mat img = cv::imread(argv[1],-1);
+	  if( img.empty() ) return -1;
+	  cv::namedWindow( "Example1", cv::WINDOW_AUTOSIZE );
+	  cv::imshow( "Example1", img );
+	  cv::waitKey( 0 );
+	  cv::destroyWindow( "Example1" );
+	  return 0;
+	}
+  
+* use <opencv2/opencv.hpp> -> general include
+* use "opencv2/highgui/highgui.hpp" -> only the neceaaary file to improve the time
 
