@@ -9,11 +9,11 @@ ML值得一本新的书去学
 
 
 
-#CH1.overview
+# CH1.overview
 有一个专门的ML模块
 
 
-##what's CV:
+## what's CV:
 In a machine vision system, however, a computer receives a grid of numbers from the camera or from disk, and that’s it. 
 	-> the 2D appearance of objects can change rad‐ ically with viewpoint
 
@@ -25,7 +25,8 @@ The next problem facing computer vision is noise. -> 边缘检测在统计情况
 
 
 
-##reference
+## reference
+  
 	core -> all the basic part
 	imgproc -> fliters/ convolutional operator
 	highgui -> user interface
