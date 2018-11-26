@@ -113,9 +113,11 @@ opencv functions live within ***cv*** (namespace) -> can use **using namespace c
 * cv::VideoWriter
 * Once this call has been made, we may stream each frame to the cv::VideoWriter object, and finally call its cv::VideoWriter.release() method when we are done
 * The first is just the filename for the new file. The second is the video codec with which the video stream will be compressed. The next two arguments are the replay frame rate and the size of the images we will be using
-	cv::VideoWriter writer;
-	writer.open( argv[2], CV_FOURCC('M','J','P','G'), fps, size );
-	//第二个参数是压缩的文件的格式
+	
+
+cv::VideoWriter writer;
+writer.open( argv[2], CV_FOURCC('M','J','P','G'), fps, size );
+//第二个参数是压缩的文件的格式
   
 
 	#include <opencv2/opencv.hpp>
