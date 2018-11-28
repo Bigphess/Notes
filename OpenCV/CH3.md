@@ -119,10 +119,39 @@ cv::saturate_cast<>() -> allows you to specify the type to which you would like 
     Vxy = cv::saturate_cast<uchar>((Vxy-128)*2 + 128);}
     //result is twice as far from 128 as the original
 
+## SparseMat
+Most of the space will be empty in many practical applications
+Compare with Mat:It is defined similarly, supports most of the same operations, and can contain the same data types
+### access SparseMat
+Have 4 ways to access:
+1.ptr()
+  
+	//第一个参数是element的index，第二个是是否创建（如果在里面没有）,第三个用来计算hash或者用来直接表示这个的hash
+	uchar* cv::SparseMat::ptr( int i0, bool createMissing, size_t* hashval=0 );
+* if creatingMissing is false:When cv::SparseMat::ptr() is called, it will return a pointer to the element if that element is already defined in the array, but NULL if that element is not defined
+* if it's true: that element will be created and a valid non-NULL pointer will be returned to that new element.
 
+2.ref<>() 
+return a reference to particular element of the array
+3.value<>()
+it returns the value and not a reference to the value
+4.find<>()
+returns a pointer to the requested object
+5.iterators
+cv::Spar seMatIterator_<> and cv::SparseMatConstIterator_<>
+  
+## for large array types
+**Mat<> & Mat_<>**
+In the case of cv::Mat_<>, the instantiated template is actually derived from the cv::Mat class, and in effect specializes that class
+**大概就是在用的时候不用再用声明<Vec2f>这种东西了？**
 
 ## cvMat，IplImage和mat
 * mat具有更强的矩阵计算能力，密集（dense）的数组，数学性能比较高，偏重于计算
 * cvMat比Mat更偏重于图像部分
 * IplImage，继承cvMat，多了更多的参数（depth，channel）
+  
 
+
+
+
+# CH5 array operations
