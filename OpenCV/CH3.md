@@ -154,4 +154,20 @@ In the case of cv::Mat_<>, the instantiated template is actually derived from th
 
 
 
+  
+
+
 # CH5 array operations
+## rules
+* output is saturation-casteed
+* output: will be created if it is not match.一般需要输入和输出的size相同，但是有的函数里面也可以不相同
+* scalars: the result of pro‐ viding a scalar argument is the same as if a second array had been provided with the same scalar value in every element
+* masks: the output will be compu‐ ted only for those elements where the mask value corresponding to that element in the output array is nonzero.
+* dtype: 有的时候不需要input全部一样或者，输入和输出并不一样。When present, dtype can be set to any of the basic types (e.g., CV_32F) and the result array will be of that type。如果就需要相同的格式的话就是默认的-1
+
+## 一些functions
+### cv::bitwise_and()
+可以计算两个array中间每个element的and
+ps. cv::bitwise_xor() -> 计算的是抑或
+functions
+
