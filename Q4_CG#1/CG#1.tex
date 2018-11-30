@@ -1,0 +1,285 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+%
+% This is where the packages are declared
+
+ 
+\documentclass[UTF8]{ctexart}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\setlength{\parindent}{2pt}
+
+
+
+\begin{document}
+
+%
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+%
+% The Title, Author Name, Date, and abstract go here
+
+\title{Q4 CG Notes}
+\author{Ruopeng XU}
+\date{updated \today}
+
+\maketitle
+
+%
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+% Here is where your content goes.
+%
+
+%------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------
+\section{Nov29th}
+%------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------
+
+\subsection{orthogonal basis}
+
+一个内积空间的正交基（orthogonal basis）是元素两两正交的基。称基中的元素为基向量。假若，一个正交基的基向量的模长都是单位长度1，则称这正交基为标准正交基或"规范正交基"（Orthonormal basis）
+
+\textbf{可以单纯的认为基就是一组基本单位，正交的就是互相垂直的}
+
+一个疑问：\\
+（1，1，1，1）\\
+（1，1，-1，-1）\\
+（-1，1，1，-1）\\
+（1，-1，1，-1）\\
+不知道为什么就和傅立叶变化相连？？\\
+（1，1，0，0）\\
+（0，0，1，1）\\
+（-1，1，0，0）\\
+（0，0，-1，1）\\
+这个不知道是和什么变换相关
+
+\subsection{eular foermula}
+欧拉公式：$e^{ix} = cosx + isinx$
+
+\textbf{在数轴上，如果一个向量乘-1（两个i）是转了180度，那么乘一个i就是转了90度，把这个一维的直线变成了一个二维的复数平面。}
+
+\noindent 作用：
+\begin{itemize}
+    \item 把指数函数的定义扩大到了复数域
+    \item 建立三角函数和指数函数的关系
+\end {itemize}
+
+在复平面上的乘法，长度会根据模长缩放，角度会根据幅角递减。
+
+\subsubsection*{数学证明}
+通过泰勒公式观察出了欧拉公式，把$e^{x},cosx,sinx$都代入了$x=i\theta$
+
+\subsubsection*{直观理解}
+可以理解为$e^{i\theta}$表示沿着单位圆运动了$\theta$角度后到达了这个点，理解为单位圆的圆周运动
+
+e的定义为：$e=\lim_{n\rightarrow 0}(1+\displaystyle{\frac{1}{n})^{n}}$，当推广到复数域的时候：
+
+$e^{i}=\lim_{n\rightarrow \infty}(1+\displaystyle{\frac{i}{n})^{n}}$,乘上$(1+\displaystyle{\frac{i}{n}})$这个东西的时候，实际上是对向量进行旋转和伸缩，当n趋近于无限大的时候，可以认为$e^{i}$旋转了1弧度。
+
+当$e^{\pi i}$的时候，相当于旋转了$\pi$弧度。
+
+当然了，在图像处理里面用这个好像还是为了转换的方便？
+
+\subsubsection*{特殊形式}
+当x等于$\pi$的时候，欧拉公式变为
+
+$e^{i\pi} + 1 = 0$
+
+把正弦波统一成了指数形式
+
+欧拉公式所描绘的，是一个随着时间变化，在复平面上做圆周运动的点，随着时间的改变，在时间轴上就成了一条螺旋线。如果只看它的实数部分，也就是螺旋线在左侧的投影，就是一个最基础的余弦函数。而右侧的投影则是一个正弦函数。
+
+\subsection*{projection&inner produce}
+\subsubsection*{内积空间}
+内积空间是数学中的线性代数里的基本概念，是增添了一个额外的结构的向量空间。这个额外的结构叫做内积或标量积。内积将一对向量与一个标量连接起来，允许我们严格地谈论向量的“夹角”和“长度”，并进一步谈论向量的正交性。
+
+\textbf{函数的内积}用来描述两个函数之间的关系，在傅立叶级数里面有很大的作用。
+
+记作：$ \int_{a}^{b} f(x)g(x)dx$，<f(x),g(x)>其中两函数在ab中间可积而且平方可积,如果内积为0，则认为这两个函数正交。
+
+\textbf{映射部分有待补充？？}
+
+
+
+\subsection*{Fourier transform & series}
+
+在时域，我们观察到钢琴的琴弦一会上一会下的摆动，就如同一支股票的走势；而在频域，只有那一个永恒的音符
+
+傅里叶同学告诉我们，任何周期函数，都可以看作是不同振幅，不同相位正弦波的叠加。在第一个例子里我们可以理解为，利用对不同琴键不同力度，不同时间点的敲击，可以组合出任何一首乐曲。
+
+\subsubsection*{傅立叶分析的用处}
+
+很多在时域看似不可能做到的数学操作，在频域相反很容易。这就是需要傅里叶变换的地方。尤其是从某条曲线中去除一些特定的频率成分，这在工程上称为滤波，是信号处理最重要的概念之一，只有在频域才能轻松的做到。
+
+求解微分方程却是一件相当麻烦的事情。因为除了要计算加减乘除，还要计算微分积分。而傅里叶变换则可以让微分和积分在频域中变为乘法和除法
+
+\subsubsection*{傅立叶级数}
+傅里叶级数的本质是将一个\textbf{周期的}信号分解成无限多分开的\textbf{（离散的）正弦波}
+
+\textbf{傅立叶级数的频谱：（从侧面看）}
+
+你能想到的任何波形都是可以如此方法用正弦波叠加起来的。
+
+为了组成特殊的曲线，有些正弦波成分是不需要的。不同频率的正弦波我们成为频率分量
+
+在频域，0频率也被称为直流分量，在傅里叶级数的叠加中，它仅仅影响全部波形相对于数轴整体向上或是向下而不改变波的形状。在频谱里面，偶数项的振幅都是0。
+
+正弦波就是一个圆周运动在一条直线上的投影。所以频域的基本单元也可以理解为一个始终在旋转的圆
+
+\textbf{傅立叶级数的相位谱：（从下面看）}
+
+通过时域到频域的变换，我们得到了一个从侧面看的频谱，但是这个频谱并没有包含时域中全部的信息。因为频谱只代表每一个对应的正弦波的振幅是多少，而没有提到相位。
+
+相位谱是投影在下面的，是最高的波峰离频率轴的距离，定义的范围是(-pi，pi]
+
+\subsubsection*{傅立叶变换}
+将一个时域\textbf{非周期的连续信号}，转换为一个在\textbf{频域非周期的连续信号。}
+
+有了欧拉公式的帮助，我们便知道：正弦波的叠加，也可以理解为螺旋线的叠加在实数空间的投影
+
+欧拉公式的另一种形式：
+
+$e^{it} = cos(t) + i.sin(t)$
+
+$e^{-it} = cos(t) - i.sin(t)$
+
+两个式子相加除2
+
+$cos(t) = \displaystyle{\frac{e^{it}+e^{-it}}{2}}$
+
+$e^{it}$可以理解为一条逆时针旋转的螺旋线，那么$e^{-it}$则可以理解为一条顺时针旋转的螺旋线。而cos(t)则是这两条旋转方向不同的螺旋线叠加的一半，因为这两条螺旋线的虚数部分相互抵消掉了！
+
+逆时针旋转的我们称为正频率，而顺时针旋转的我们称为负频率。在连续状态下叠加出来的就是海螺的形状。（在复频域上）
+
+\begin{figure}
+\centering
+\includegraphics[width=0.3\textwidth]{./images/frog.jpg}
+\end{figure}
+
+\subsubsection*{在图像领域的意义}
+二维矩阵中每一列（或者每一行）数据都可以单独看作一个波。对一个M \times N的矩阵，可以看作N个M \times 1的波。在二维傅立叶变换里，先分别对每一列（行）做傅立叶变换，会得到同样大小的傅立叶系数向量，再在另一个维度（上面是行这里就是列，上面是列这里就是行）对这些系数做傅立叶变换。所以，研究二维傅立叶变换可以看成俩个一维傅立叶变换，本质上还是一维数据的处理。
+
+\textbf{这个波的叠加本质上就是在一个图里面，把每一个点的像素值写出来，然后得到一个分布图。通过傅立叶级数，可以求出来组成这个图像的数据的各个频率的波和它的幅度}
+
+对于一列图像的像素值，如果它的大小是N$\times$1，也就是说有N个f(x)的值，而未知数共有2P+1个。根据解方程的思想，可以代入每一个像素的值，解出各个$a_n$和$b_n$的值。但是，还有一个问题：单位频率$\omega$还是未知的。
+
+那么是不是随意给$\omega$一个值就可以呢？当然不是的，需要明白频率$\omega$对于一组数据的作用。$\omega$决定了这组数据的伸缩程度。
+
+在一个图片中，取出其中一列数据做傅立叶变换，把取出的这列数据看作是周期为T = N的周期数据最容易解决问题。
+
+傅立叶级数星标公式：
+
+$\displaystyle f(x) =\frac{a_0}{2} + \sum_{n=1}^{P}[a_n*cos(n\omega x)+b_n*sin(n\omega x)]$
+
+根据欧拉公式
+
+$ \displaystyle cos(\theta ) =\frac{1}{2} (e^{i\theta}+e^{-i\theta})
+
+\displaystyle sin(\theta) =-{\frac{1}{2}} (e^{i\theta}-e^{-i\theta})
+
+\displaystyle f(x) ={\frac{a}{2}} +\sum_{n=1}^{P}({\frac{a_n-ib_n}{2}} e^{in\omega x}+{\frac{a_n+ib_n}{2}} e^{-in\omega x})$
+\\
+\\
+当n=1，2，3……P时
+
+$\displaystyle c_n=\frac{a_n-ib_n}{2}
+
+\displaystyle c_{2P+1-n}=\frac{a_n+ib_n}{2}
+
+\displaystyle c_0=\frac{a_0}{2}$
+
+\textbf{懒得推导了}
+
+\textbf{学到了的东西：}
+\begin{itemize}
+    \item 图片是波，这个波可以看成N个正弦，余弦波的叠加
+    \item 大自然中的各种信号的大部分信息都集中在低频，而且人眼对低频更敏感
+\end{itemize}
+
+\textbf{应用：}
+\begin{itemize}
+    \item 在去噪上的原理和缺陷： 当图像出现的噪声是有规律的，相当于让某个频率波的幅度增大，把这个值减小，就是去掉这个频率的波，所以可以去噪，比如高斯噪声。当出现的噪声是没有规律的，随机出现的一些东西，FT是没有作用的
+    \item 在图片压缩方面，根据傅立叶变换推导出的DCT有很重要作用。JPEG格式的图片就是用Huffman编码方式压缩图片的DCT的系数。
+\end{itemize}
+% \LaTeX{} is great at typesetting mathematics. Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
+% $$S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+%       = \frac{1}{n}\sum_{i}^{n} X_i$$
+% denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
+
+% You can also create \texttt{aligned} equations as follows:
+% \begin{align}
+% &a^2 + b^2 = c^2,\\
+% &e^{i\theta} = \cos(\theta) + i\sin(\theta).
+% \end{align}
+
+% In the code, 
+% \begin{verbatim}
+% \begin{align}
+% &a^2 + b^2 = c^2,\\
+% &e^{i\theta} = \cos(\theta) + i\sin(\theta).
+% \end{align}
+% \end{verbatim}
+% the \texttt{\&} tells \LaTeX{} what you want to align.
+
+
+% \subsection{How to Make section*s and Subsection*s}
+
+% Use section* and subsection* commands to organize your document. \LaTeX{} handles all the formatting and numbering automatically. Use ref and label commands for cross-references.
+
+% \subsection*{How to Make Lists}
+
+% You can make lists with automatic numbering \dots
+
+% \begin{enumerate}
+% \item Like this,
+% \item and like this.
+% \end{enumerate}
+% \dots or bullet points \dots
+% \begin{itemize}
+% \item Like this,
+% \item and like this.
+% \end{itemize}
+% \dots or with words and descriptions \dots
+% \begin{description}
+% \item[Word] Definition
+% \item[Concept] Explanation
+% \item[Idea] Text
+% \end{description}
+
+% We hope you find write\LaTeX\ useful, and please let us know if you have any feedback using the help menu above.
+
+%
+% = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
