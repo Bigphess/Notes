@@ -170,4 +170,8 @@ In the case of cv::Mat_<>, the instantiated template is actually derived from th
 可以计算两个array中间每个element的and
 ps. cv::bitwise_xor() -> 计算的是抑或
 functions
+  
+
+
+# CH6 Drawing & annotating
 
