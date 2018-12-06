@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1543829579 "quiz#2.tex" "quiz#2.pdf" "quiz#2" 1543829580
+["pdflatex"] 1544061653 "quiz#3.tex" "quiz#3.pdf" "quiz#3" 1544061653
   "/usr/local/texlive/2018basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex" 1480098816 1006 b103be0bfc8c1682ff1fa9760697a329 ""
   "/usr/local/texlive/2018basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex" 1480098816 43226 167a99346bfe2676e3efcdde2d81fe45 ""
   "/usr/local/texlive/2018basic/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex" 1480098816 19302 4f089dc590e71f7331e6d5b5ea85273b ""
@@ -89,12 +89,10 @@
   "/usr/local/texlive/2018basic/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty" 1480098837 325 2bcd023400636339210573e2b3ee298b ""
   "/usr/local/texlive/2018basic/texmf-dist/tex/latex/xcolor/xcolor.sty" 1480098843 55589 34128738f682d033422ca125f82e5d62 ""
   "pythonhighlight.sty" 1543813200 4820 668552513082514ff44d2caf04df9d5a ""
-  "quiz#2.aux" 1543829580 176 348a1a7a485e8d2757f5a7bef2e26d70 ""
-  "quiz#2.tex" 1543829579 6489 04c87c827eb3231744a239e3ad416a59 ""
-  "quiz2.jpg" 1543801951 153275 702b938d21eb7b9ae063e47fddb2406d ""
+  "quiz#3.aux" 1544061653 232 9eca9ad9507e927d553ebb51fac6db80 ""
+  "quiz#3.tex" 1544061652 4373 31142025df5e3c20b2ad782e83e02744 ""
   "quiz2_2.jpg" 1543815776 90441 b2b6311f9106f3add2d77436fdfefdd8 ""
-  "quiz2_3.jpg" 1543829271 59155 390241d941d75b9db8e906c6ef1a4dce ""
   (generated)
-  "quiz#2.aux"
-  "quiz#2.pdf"
-  "quiz#2.log"
+  "quiz#3.aux"
+  "quiz#3.pdf"
+  "quiz#3.log"

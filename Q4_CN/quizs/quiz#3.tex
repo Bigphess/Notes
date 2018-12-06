@@ -95,8 +95,8 @@
 %   - Author
 %
 
-\newcommand{\hmwkTitle}{Quiz\ \#2}
-\newcommand{\hmwkDueDate}{Dec 5, 2018}
+\newcommand{\hmwkTitle}{Quiz\ \#3}
+\newcommand{\hmwkDueDate}{Dec 9, 2018}
 \newcommand{\hmwkClass}{Complex Networks}
 \newcommand{\hmwkClassTime}{Section A}
 % \newcommand{\hmwkClassInstructor}{Professor Isaac Newton}
@@ -153,70 +153,17 @@
 
 \begin{homeworkProblem}
     % questions
-1. Make a program of counting the number of triangles in “karate club network”. Show the code and its results.
-
-1. Network data is available in the following sites.
-
-http://www‐personal.umich.edu/~mejn/netdata/
-
-http://networkrepository.com/soc‐karate.php
-
-    \includegraphics[scale=0.4]{quiz2.jpg}
+1. Write down the formulas of average degree and density of
+graph G=(V,E) (|V|=n, |E|=m).
 
 \subsection*{Answer 1}
 
-The number of triangles is 45.
+
 
 \begin{python}
-import networkx as nx
-import matplotlib.pyplot as plt
-import numpy as np
 
-G = nx.karate_club_graph()
-plt.figure(figsize=(6,6))
-nx.draw_spring(G,node_size=400,node_color='red',with_labels=True,font_weight='bold')
-
-print("n=",nx.number_of_nodes(G))
-print("m=",nx.number_of_edges(G))
-
-A=nx.adjacency_matrix(G).todense()
-print(A)
-print(A*A)
-print("sum",np.sum(A))
-print("trace",np.trace(A))
-
-sum = 0
-for i in range(0,34):
-  sum = sum + nx.triangles(G, i)
-
-print("tri",nx.triangles(G, nodes = None))
-print("NUM_of_triangles",int(sum/3))
 \end{python}
 
-The result is as follows:
-
-\begin{python}
-n= 34
-m= 78
-[[0 1 1 ... 1 0 0]
- [1 0 1 ... 0 0 0]
- [1 1 0 ... 0 1 0]
- ...
- [1 0 0 ... 0 1 1]
- [0 0 1 ... 1 0 1]
- [0 0 0 ... 1 1 0]]
-[[16  7  5 ...  0  3  4]
- [ 7  9  4 ...  1  2  3]
- [ 5  4 10 ...  3  1  6]
- ...
- [ 0  1  3 ...  6  1  2]
- [ 3  2  1 ...  1 12 10]
- [ 4  3  6 ...  2 10 17]]
-sum 156
-trace 0
-tri {0: 18, 1: 12, 2: 11, 3: 10, 4: 2, 5: 3, 6: 3, 7: 6, 8: 5, 9: 0, 10: 2, 11: 0, 12: 1, 13: 6, 14: 1, 15: 1, 16: 1, 17: 1, 18: 1, 19: 1, 20: 1, 21: 1, 22: 1, 23: 4, 24: 1, 25: 1, 26: 1, 27: 1, 28: 1, 29: 4, 30: 3, 31: 3, 32: 13, 33: 15}
-NUM_of_triangles 45
-\end{python}
 
 
 \includegraphics[scale=0.2]{quiz2_2.jpg}
@@ -227,18 +174,10 @@ NUM_of_triangles 45
 \pagebreak
 
 \begin{homeworkProblem}
-
-2. Compute the maximum number of triangles in a graph of 9 nodes.
-
+2. Make a program of computing average degree, density,
+and L3 of K6 and K3,3. Show the code and its results.
 
 \subsection*{Answer2}
-The number of triangles is maximum when each node is connected to others.
-
-Also, there is no orders in triangles. 
-
-Therefore,
-
-Maximum num of triangles = $\displaystyle C_{9}^{3} = \frac{9!}{3!6!} = 84$
 
 \end{homeworkProblem}
 \pagebreak
@@ -248,39 +187,26 @@ Maximum num of triangles = $\displaystyle C_{9}^{3} = \frac{9!}{3!6!} = 84$
 
 \begin{homeworkProblem}
 
-3. Draw a graph of 9 nodes and 12 edges that contains no triangles.
+3. Is K6 planar? Why?
 
 \subsection*{Answer3}
 
-\begin{python}
-import networkx as nx
-import matplotlib.pyplot as plt
-import numpy as np
 
-G = nx.Graph()
-G.add_nodes_from(range(1,10))
-for i in range(3,9):
-  G.add_edges_from([(1,i)])
 
-for j in range(4,10):
-  G.add_edges_from([(2,j)])
-  
-print("n =", nx.number_of_nodes(G))
-print("m =", nx.number_of_edges(G))
-print("tri",nx.triangles(G, nodes = None))
 
-nx.draw_spring(G, node_size=400, node_color='red', with_labels=True, font_weight='bold')
-\end{python}
+\end{homeworkProblem}
+\pagebreak
 
-The result is as follows:
 
-\begin{python}
-n = 9
-m = 12
-tri {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
-\end{python}
 
-\includegraphics[scale=0.4]{quiz2_3.jpg}
+
+\begin{homeworkProblem}
+
+4. Is K3,3 planar? Why?
+
+\subsection*{Answer3}
+
+
 
 
 \end{homeworkProblem}

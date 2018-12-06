@@ -49,3 +49,8 @@ a vector *v* is given,projeection of it to a base vector means an eextraction of
 是把类似波的函数表示成简单正弦波的方式。更正式地说，它能将任何周期函数或周期信号分解成一个（可能由无穷个元素组成的）简单振荡函数的集合，即正弦函数和余弦函数（或者，等价地使用复指数）。
 写了方程式然后解释各种参数的含义
 sum and difference formula -> 不知道是什么（三角函数和差公式）
+
+### derivative
+
+### n-derivative
+f(n)

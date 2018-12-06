@@ -173,5 +173,71 @@ functions
   
 
 
-# CH6 Drawing & annotating
+# CH16 Contour
+## countour finding
+* A contour is a list of points that represent, in one way or another, a curve in an image.
+* In each point will know the position of another point
+* findContours() can find the contour in a binary image
 
+### Contour hierarchies
+在存储contour上面，主要用的方法是存在一个tree里面，这个tree每个node的children是它所包含的contours
+
+### 执行这个函数
+* Input：***an 8-bit, single-channel image and will be interpreted as binary***
+* 这个图片会被在本地计算？所以if you need that image for anything later, you should make a copy and pass that to cv::findContours()
+* 可以选择extract contour的mode，比如就提取外面轮廓，剩下的主要是tree的构成结构不同
+* 可以选择method，比如只提取里面的点这种感觉的
+* offset：解决在一个小的ROI提取但是要在大的图片里表示，或者相反的情况
+
+### draw contours
+可以直接画出来，除了可以设计画什么之外，还可以设计画在contour树层次里面的到底哪个层的
+
+### connected component analysis
+* isolate and process the resulting image
+* output: labeled pixel image, connected area labeled same
+* 还有一个功能可以直接返回链接区域的status，包括区域的bounding box，重心等
+
+## 关于轮廓的一些其他东西
+### 多边形逼近 poly approixmate
+* 找到两个极点，然后在两部分上面找离得最远的点
+* void cv::approxPolyDP()
+
+### summary characteristics
+* these might include length or some other form of size measure of the overall contour
+* 给一个contour然后计算他的长度
+* boundingRect**（只要一个参数）**，返回的rect是垂直的
+* minAreaRect()，返回的rect可以是斜着的
+**下面的代码是怎么在迭代轮廓的时候画斜的矩形**
+
+```
+    cv::RotatedRect boundingRect = cv::minAreaRect(contours[i]);
+    cv::Point2f vetices[4];
+    boundingRect.points(vetices);
+    for(int i = 0; i< 4 ; i++)
+        cv::line(frame, vetices[i], vetices[(i+1)%4], cv::Scalar(0,255,0));
+```
+* cv::minEnclosingCircle()：和bound box差不多，需要自己键入参数，拟合这玩意周围最小的圆形
+* cv::fitEllipse() 拟合这玩意周围最小的椭圆
+* cv::fitLine()，找到线型的
+* cv::convex Hull() 找到凸包
+* 除此之外还有可以检测点是否在poly里面或者是否是凸包（？）的函数
+
+## Matching Contours & image
+希望完成的问题：
+* 比较两个已经存在的contour
+* 比较一个contour和一个template
+
+### moments
+contour moments, which represent certain high-level characteristics of a contour, an image, or a set of points（这三个在这个里面是等价的）
+* m_{p，q}是这个区域上面所有的像素的和，乘以x的p次方和y的q次方。pq分别是x和y部分的value
+* 所以当是二值图像的时候，m00是所有的非零区域（图像），轮廓的长度（contour），点的数量（点集）
+* 同一张二值图，m10和m01除以m00，分别就是x，y的平均值
+* 考虑到可变性的问题，又一个center moments（不同位置），N-center monment（解饿觉额缩放问题），Hu invariant moments（解决旋转问题）
+
+### match shapes
+* cv::matchShapes()
+
+
+
+
+contour moments, which can be used to summarize the gross shape characteristics of a contour;

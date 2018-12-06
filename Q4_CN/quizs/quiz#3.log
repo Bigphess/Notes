@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.11.1)  3 DEC 2018 18:32
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.11.1)  6 DEC 2018 11:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**quiz#2.tex -recorder
-(./quiz#2.tex
+**quiz#3.tex -recorder
+(./quiz#3.tex
 LaTeX2e <2018-04-01> patch level 2
 Babel <3.18> and hyphenation patterns for 22 language(s) loaded.
 (/usr/local/texlive/2018basic/texmf-dist/tex/latex/base/article.cls
@@ -489,8 +489,8 @@ Package: listings 2015/06/04 1.6 (Carsten Heinz)
 \c@partCounter=\count129
 \c@homeworkProblemCounter=\count130
 
-(./quiz#2.aux)
-\openout1 = `quiz#2.aux'.
+(./quiz#3.aux)
+\openout1 = `quiz#3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 148.
 LaTeX Font Info:    ... okay on input line 148.
@@ -520,38 +520,20 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 ]
-File: quiz2.jpg Graphic file (type bmp)
-<quiz2.jpg>
-
-Overfull \hbox (10.43051pt too wide) in paragraph at lines 164--165
-[][] 
- []
-
 (/usr/local/texlive/2018basic/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <8> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 171.
-
-[2]
 File: quiz2_2.jpg Graphic file (type bmp)
 <quiz2_2.jpg>
- [3] [4]
-File: quiz2_3.jpg Graphic file (type bmp)
-<quiz2_3.jpg>
 
-Overfull \hbox (10.43051pt too wide) in paragraph at lines 283--284
-[][] 
- []
-
-[5] (./quiz#2.aux) ) 
+[2] [3] [4] [5] (./quiz#3.aux) ) 
 Here is how much of TeX's memory you used:
- 13249 strings out of 494476
- 256647 string characters out of 6165662
- 473236 words of memory out of 5000000
- 16920 multiletter control sequences out of 15000+600000
- 10088 words of font info for 53 fonts, out of 8000000 for 9000
+ 13067 strings out of 494476
+ 254832 string characters out of 6165662
+ 319144 words of memory out of 5000000
+ 16746 multiletter control sequences out of 15000+600000
+ 8373 words of font info for 43 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 55i,12n,54p,445b,2127s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,11n,54p,445b,1394s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on quiz#2.pdf (5 pages).
+Output written on quiz#3.pdf (5 pages).
