@@ -95,8 +95,8 @@
 %   - Author
 %
 
-\newcommand{\hmwkTitle}{Quiz\ \#3}
-\newcommand{\hmwkDueDate}{Dec 9, 2018}
+\newcommand{\hmwkTitle}{Quiz\ \#4}
+\newcommand{\hmwkDueDate}{Dec 16, 2018}
 \newcommand{\hmwkClass}{Complex Networks}
 \newcommand{\hmwkClassTime}{Section A}
 % \newcommand{\hmwkClassInstructor}{Professor Isaac Newton}
@@ -153,45 +153,139 @@
 
 \begin{homeworkProblem}
     % questions
-1. Write down the formulas of average degree and density of
-graph G=(V,E) (|V|=n, |E|=m).
+What happens when a walker keeps walking for a long time on a graph?
+\\
+pi(t): probability that the walk is at vertex i at time t
+\\
+1. graph 1: find $AD^{-1}$
+
+\includegraphics[scale=0.25]{quiz4_1.jpg}
+
+\includegraphics[scale=0.25]{quiz4_3.jpg}
+
 
 \subsection*{Answer 1}
+According to the defination of D
+$D^{-1}$ = \\
+$\displaystyle \begin{bmatrix}
+1 & 0 & 0 & 0\\ 
+0& \frac{1}{3} & 0 & 0 \\ 
+0 & 0 & \frac{1}{2} & 0\\ 
+0 & 0 & 0 & \frac{1}{2}
+\end{bmatrix}$
+\\
+\\
+Thus, $AD^{-1}$ = 
+$ \displaystyle \begin{bmatrix}
+0 & 1 & 0 & 0\\ 
+1 & 0 & 1 & 1 \\ 
+0 & 1 & 0 & 1\\ 
+0 & 1 & 1 & 0
+\end{bmatrix}$
+$\times$
+$ \displaystyle \begin{bmatrix}
+1 & 0 & 0 & 0\\ 
+0& \frac{1}{3} & 0 & 0 \\ 
+0 & 0 & \frac{1}{2} & 0\\ 
+0 & 0 & 0 & \frac{1}{2}
+\end{bmatrix}$
+=
+$\begin{bmatrix}
+0 & \frac{1}{3} & 0 & 0\\ 
+1 & 0 & \frac{1}{2} & \frac{1}{2} \\ 
+0 & \frac{1}{3} & 0 & \frac{1}{2}\\ 
+0 & \frac{1}{3} & \frac{1}{2} & 0
+\end{bmatrix}$
 
+
+
+
+
+% \begin{python}
+
+% \end{python}
+
+
+\end{homeworkProblem}
+\pagebreak
+
+\begin{homeworkProblem}
+2. graph 1: find p0(∞),p1(∞),p2(∞), and p3(∞)
+
+\subsection*{Answer2}
+When p -> ∞, the $p_{i}$(∞) is the probability of each node in the network.
+According to the slides:
+
+\textbf {probability is proportional to the degree of the vertex} and the sum of $p_{i}=1$
+\\
+Thus,
+\\
+\\
+p0(∞)+p1(∞)+p2(∞)+p3(∞)=1,
+\\
+\\
+make p0(∞)=x,p1(∞)=3x, p2(∞) = 2x,p3(∞) = 2x
+\\
+\\
+x + 3x + 2x + 2x = 1
+\\
+\\
+x = $\displaystyle \frac{1}{8}$
+\\
+\\
+As a result,
+$\displaystyle p0(\infty) = \frac{1}{8}, p1(\infty) = \frac{3}{8}, p2(\infty) = \frac{1}{4}, and, p3(\infty) = \frac{1}{4}$
+
+
+
+
+
+\end{homeworkProblem}
+\pagebreak
+
+
+
+
+\begin{homeworkProblem}
+
+3. graph 2: make a program of simulating random walks. show its results and answer the most visited node
+
+\includegraphics[scale=0.3]{quiz4_2.jpg}
 
 
 \begin{python}
+import networkx as nx
+import matplotlib.pyplot as plt
+import numpy as np
 
+G = nx.Graph()
+G.add_nodes_from(range(0,10))
+G.add_edges_from([(0,2),(1,2),(2,3),(2,4),(3,5),(3,6),(4,6),(5,7),(6,7),(7,8),(8,9),(8,10)])
+plt.figure(figsize=(5, 5))
+nx.draw_spring(G, node_size=400, node_color='red', with_labels=True, font_weight='bold')
+A = nx.adjacency_matrix(G).todense()
+A = np.array(A, dtype = np.float64)
+c = np.array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) # counter
+walkLength = 100000 # random walk length
+id = 0 # starting node (0-th)
+for k in range(walkLength):
+  p = A[id,:]
+  id = np.random.choice(np.flatnonzero(p == p.max())) # random choice
+  visited.append(id)
+  c[id] = c[id] + 1
+print(c)
 \end{python}
 
+Simulate we travel 10000 steps and try three times, according to the result:
+\begin{python}
+[ 4201  4289 16858 12600  8252  8285 12502 12453 12355  4045  4160]
 
+[ 4294  4243 16836 12526  8287  8275 12580 12508 12309  4046  4096]
 
-\includegraphics[scale=0.2]{quiz2_2.jpg}
+[ 4006  4100 16334 12456  8280  8425 12401 12572 12840  4282  4304]
 
-
-
-\end{homeworkProblem}
-\pagebreak
-
-\begin{homeworkProblem}
-2. Make a program of computing average degree, density,
-and L3 of K6 and K3,3. Show the code and its results.
-
-\subsection*{Answer2}
-
-\end{homeworkProblem}
-\pagebreak
-
-
-
-
-\begin{homeworkProblem}
-
-3. Is K6 planar? Why?
-
-\subsection*{Answer3}
-
-
+\end{python}
+Thus, the most visited node is node 2
 
 
 \end{homeworkProblem}
@@ -200,17 +294,6 @@ and L3 of K6 and K3,3. Show the code and its results.
 
 
 
-\begin{homeworkProblem}
-
-4. Is K3,3 planar? Why?
-
-\subsection*{Answer3}
-
-
-
-
-\end{homeworkProblem}
-\pagebreak
 
 \end{document}
 %
