@@ -141,4 +141,27 @@ signed & unsigned（除了bool）：
 	* 写成一串星号可以表示从pointer到pointer
 * refer到pointer
 	* &r可以定义成一个pointer（指针写在=右边）
-	
+
+## 2.4 修饰词 const
+* 作用：希望定义一个variable，value不可以被改变，这时候就用上了const。在创建的时候必须初始化
+* 在实际操作的时候，到底是不是const对数值没有影响，可以用非const来初始化const或者用const来初始化其他的
+* 在创建之后，编译的时候所有的变量名都会换成变量的值
+* const对每个file来说是local的
+* 如果希望定义一个在所有file里面都可以用的，然后在其他使用的时候声明，这时候用**extern const（在定义和后续声明的时候都需要使用）**
+
+### 2.4.1 refer to const
+* 可以refer到一个const，但是之后就不能通过refer来改变变量的值，也不能把一个const的变量赋值给一个非const的refer
+* const refer的意思是这个refer不能被用来改变变量，但是被绑的变量本身可以改变。比如const int &r2 = i，这时候改变i是合法的
+
+### 2.4.2 pointer and const
+* pointer to const不能被用于改变指向的东西
+	* 但是pointer是const的和变量自己改不改没关系。变量是const的话指针必须是const的
+* const pointer
+	* 指针本身就是一个对象，所以指针自己也可以是const的
+	* 必须被初始化，一旦初始化了，他的内容（所指向的地址）就不能改变了。
+	* 定义的时候用 int * const cpr = &num （const的位置改变了）
+	* **但是可以用const pointer来改变所指向东西的值！！！只是这两个东西绑定了不能改了而已**
+* 可以分开考虑pointer和对象
+	* top-level：pointer自己是一个const
+	* low-level：指向一个const
+**常量指针就是一个常量，不能把常量给普通但是可以把普通给常量**
