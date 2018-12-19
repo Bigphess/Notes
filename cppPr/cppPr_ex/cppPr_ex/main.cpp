@@ -8,10 +8,8 @@
 
 #include <iostream>
 
-int main(int argc, const char * argv[]) {
-    int i = 100, sum = 0;
-    for (int i = 0; i != 10; ++i)
-        sum += i;
-    std::cout << i << " " << sum << std::endl;
+int main(int argc, const char * argv[])
+{
+    std:: cout << "Hello world" << std::endl;
     return 0;
 }

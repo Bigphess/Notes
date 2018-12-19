@@ -161,7 +161,58 @@ signed & unsigned（除了bool）：
 	* 必须被初始化，一旦初始化了，他的内容（所指向的地址）就不能改变了。
 	* 定义的时候用 int * const cpr = &num （const的位置改变了）
 	* **但是可以用const pointer来改变所指向东西的值！！！只是这两个东西绑定了不能改了而已**
+
+### 2.4.3 top-level
 * 可以分开考虑pointer和对象
-	* top-level：pointer自己是一个const
-	* low-level：指向一个const
+	* top-level：pointer自己是一个const -> 本身就是const的，可以出现在任何的对象里面
+	* low-level：指向一个const -> 只出现在refer和pointer里面
+	* 当copy一个对象的时候，top-level是被忽略的
 **常量指针就是一个常量，不能把常量给普通但是可以把普通给常量**
+
+### 2.4.4 constexpr
+* 常量表达式是编译的时候不能改变的，const object或者literal都是常量表达式。只有在初始化的时候知道了的值才是常量表达式。如果是个const int但是不确定到底是什么，那么就还不算
+* 在前面加上 constexpr，这时候只有当后面的变量是常量的时候才能用
+	* 可以在compile的时候判定
+	* 当这个类型不是literal的时候，不能定义成常量表达式（literal包括算数，pointer和refer）
+	* 在函数内定义的变量一般不会储存在固定的地址，所以这时候指针不能是constexpr（6.1.1）
+* **当使用constexpr的时候，作用在的是指针上而不是指向的东西上**
+```
+const int *p = nullptr; // p is a pointer to a const int constexpr int *q = nullptr; // q is a const pointer to int
+```
+
+## 2.5 types 类型
+### 2.5.1 type aliases
+* 即为对另一个type的化名 -> 简化比较复杂的type，更好使用
+	* 定义方法1： 
+```
+typedef double wages; // wages is a synonym for double
+typedef wages base, *p; // base is a synonym for double, p for double*
+```
+	* 方法2: using SI = Sales_item；
+* 和pointer以及const -> 用的时候直接替代会出问题
+```
+typedef char *pstring;
+const pstring cstr = 0; // cstr is a constant pointer to char
+const pstring *ps; // ps is a pointer to a constant pointer to char
+```
+
+### 2.5.2 auto
+* 作用：有的时候没法定义变量的type，这时候可以用auto，编译的时候会自动指出变量的类型（从初始化的结果推断出来的）
+	* 写成一行定义的时候，auto不能包括不同的类型（如int和double）
+* 指针refer，const和auto
+	* 当用auto然后用一个refer初始化的时候，得到的结果是refer绑定的object
+	* 如果需要auto之后的结果还是const的，需要在auto前面加上const
+```
+const int ci = i, &cr = ci;
+auto b = ci; // b is an int (top-level const in ci is dropped)
+auto c = cr; // c is an int (cr is an alias for ci whose const is top-level) autod=&i; // d isan int*(& ofan int objectis int*)
+auto e = &ci; // e is const int*(& of a const object is low-level const)
+```
+
+### 2.5.3 decltype
+* 作用：从expr里面推断出来type，但是不用这个expr来初始化的时候。这时候用decltype(fun())，这时候fun用来判断变量的类型，但是不call
+* 如果是必须初始化的东西（比如pointer或者refer）必须初始化
+* decltype(* p) is int&, not plain int
+* decltype((variable))肯定是一个refer，但是decltype(variable)只有当variable是refer的时候才是
+
+
