@@ -1,0 +1,10 @@
+# Fdb version 3
+["pdflatex"] 1545291754 "CppPrnotes.md" "CppPrnotes.pdf" "CppPrnotes" 1545291754
+  "/usr/local/texlive/2018basic/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
+  "/usr/local/texlive/2018basic/texmf-var/web2c/pdftex/pdflatex.fmt" 1541035192 2657848 b414e38c46394ba395c97b1a7793b36b ""
+  "/usr/local/texlive/2018basic/texmf.cnf" 1523933242 628 fc6344cfe40d0ae2a8eba43e51328a06 ""
+  "CppPrnotes.aux" 1545291754 8 a94a2480d3289e625eea47cd1b285758 ""
+  "CppPrnotes.md" 1545283282 12219 f00f2522ac245d43565350b1000ac4e5 ""
+  (generated)
+  "CppPrnotes.log"
+  "CppPrnotes.pdf"

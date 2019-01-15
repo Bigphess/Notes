@@ -216,3 +216,39 @@ auto e = &ci; // e is const int*(& of a const object is low-level const)
 * decltype((variable))肯定是一个refer，但是decltype(variable)只有当variable是refer的时候才是
 
 
+# 第三章 string，vector，array
+第二章说的是c++里面的built-in类型，除此之外还有很多library的类型（标准库），定义了很多高于计算机内部直接访问的数字和字母的类型。
+
+## 3.1 namespace声明
+* 每次都声明函数的namespace比较麻烦，可以在所有的开始之前用using namespace :: name来声明使用的特定的函数的namespace。或者直接用他代表所有的。
+* 头文件里面不应该用using，因为include的时候就加到所有的东西里面了，那就没有意义了
+
+## 3.2 string
+string定义在std的namespace里面
+### 3.2.1 定义和初始化
+* 一个不知道的初始化方法： string s(n,'b')，输出结果是n个b
+* 使用s("hiya")和s="hiya"一个是direct的初始化方法，另一个是copy的初始化方法。比较容易读的方法是创建： string s = string(10,'b')
+
+### 3.2.2 string的操作
+* string的读和写，cout和cin（iostream库）
+* 当键盘有输入的时候，while(cin >> word)这种感觉的东西当条件，cin是会识别空格然后分开的！！！
+* getline()可以读取一整行，存在第二个参数里面，并且帮忙跳到新的一行
+* .empty()和.size()可以判定是否为空，以及string里面的char的数量
+* string:: size_type
+	* size的返回值的类型是size_type
+	* **注意：因为返回值类型不同，所以当比较size的时候，如果和一个int的负数比较，int会被转换成unisgned的一个巨大的数字，从而导致比较的失败 -> 所以在使用size的语句里面，不用int比较好（亲身证明确实如此，换成double就没事了）**
+* 比较字符串
+	* == 或者 ！= 来比较两个是否相等，需要是相同的长度且包括相同的字母
+	* 比较两个的大小时
+		* 如果长度不同，如果短的每个的字母都和长的相同，那短的比较小
+		* 如果任何一位上面的char不同，那就是第一个不同的char比较的结果
+* add
+	* 字符串可以直接相加（指s1+s2）
+	* 可以把string和literal混着加，但是两个带引号的不能**连在一起**直接加（这是什么脑残规则）
+* 练习 
+	* 可以直接通过索引vector的方法索引string里面的char（但是一个词一个词读取直接用cin>> s也是可以的（我是傻逼吗））
+	* 二择的判断条件可以写成 ((str1.size() > str2.size()) ? str1 : str2)
+
+### 3.2.3 string里面的chars
+* 有时候需要处理每一个字母，有的时候需要处理特殊的一些字母，定义在函数**cctype**里面
+
