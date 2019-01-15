@@ -1,10 +1,26 @@
 # Notes
 ## Course notes
+### Q3_FP
+for functional programming in 2018 Tokyo Tech
 ### Q4_CG 
-  for computer graphics in 2018 Tokyo Tech
+ ~ for computer graphics in 2018 Tokyo Tech~
 ### Q4_CN 
-  for complex network in 2018 Tokyo Tech
-  
-  **copyright of the slides belongs to Professor**
+  for complex network in 2019 Tokyo Tech
+
+### 文系
+ 文系课程
+ 
 ## BookReading
-### Opencv
+### openCV
+~学了开始的一部分~
+### cppPr
+C++学习资料
+### python
+python学习资料
+
+## lab
+研究室相关
+
+## 杂谈
+### 奇怪的小程序
+* 关于打包压缩文件
