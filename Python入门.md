@@ -3,10 +3,12 @@ terminal：python3
 help()打开帮助，q退出帮助
 * 注释：#
 
-### sublime自己设置python3
+### 一些奇怪的小笔记
+* sublime自己设置python3
 ```
 which python3
 ```
+* sublime用REPL插件实现input，记得修改python版本
 
 ### 常量
 * 数字：int和float。（int可以表示任何大小的整数）
@@ -88,11 +90,28 @@ x is 50
 Changed global x to 2
 Value of x is 2
 ```
-* 默认参数，在定义的时候直接给这个参数赋值，如果调用的时候不改就是默认值，改了的话就是改了的值
-* 关键字参数：在调用参数的时候使用函数的关键字，而不是参数的位置来调用：func(c=50, a=100)
-* 可变参数：希望参数可以任意数量变换，def total(a=5, * numbers, ** phonebook):当收到星号加参数的时候，所有参数都会变成一个tuple或者dict？
-* return可以设置返回值，pass可以直接pass整个函数的定义
-* docstrings：函数定义后面的一个字符串，第一行是大写字母开始，第二行空着，第三行开始写详细内容，使用 .__doc__ 来调用。**也可以用help(函数名)来调用**
+
+### 默认参数
+* 在定义的时候直接给这个参数赋值
+* 如果调用的时候不改就是默认值，改了的话就是改了的值
+
+### 关键字参数
+* 在调用参数的时候使用函数的关键字，而不是参数的位置来调用
+* func(c=50, a=100)
+
+### 可变参数
+* 希望参数可以任意数量变换
+* def total(a=5, * numbers, ** phonebook):
+* 当收到星号加参数的时候，所有参数都会变成一个tuple或者dict？
+
+### return
+* 可以设置返回值
+* pass可以直接pass整个函数的定义
+
+### docstrings
+* 函数定义后面的一个字符串
+* 第一行是大写字母开始，第二行空着，第三行开始写详细内容
+* 使用 .__doc__ 来调用。**也可以用help(函数名)来调用**
 ```
 def print_max(x, y):
     '''打印两个数值中的最大数。
@@ -119,3 +138,208 @@ $ python function_docstring.py
 ```
 
 ## 模块
+* 一个模块可以被import
+* .pyc文件导入的速度更快，但是如果.py没有权限的话，pyc也不能访问
+
+### from..import
+* 如果只需要一个模块里面的一部分函数
+* 但是这样容易冲突，不建议使用
+* 如果用from mymodule import * ，会导入除了__开头的其他公共名称
+
+### __name__
+* 每个模块都有自己的名字，这个名字用来确定这是独立运行的模块还是被import的模块作用很大
+* 模块第一次导入的时候，包含的代码将被执行
+```
+if __name__ == '__main__':
+    print('This program is being run by itself')
+else:
+    print('I am being imported from another module')
+```
+
+### dir函数
+* 返回对象所定义的名称列表，如果没有参数，返回的是当前的 
+
+### 包package
+* 用来组织起来模块
+* 是包含模块和__init__.py的文件夹，init表示他是特别的
+
+
+## 数据结构
+### 列表
+* 有序的集合，可变
+* append往列表里面增加对象
+* 方括号表示
+
+### tuple
+* 多个对象保存在一起，类似列表但是不是
+* 不可变，类似字符串
+* 圆括号表示
+* 在访问里面是括号套括号的，('monkey', 'camel', ('python', 'elephant', 'penguin'))，这时候可以用索引[2]来访问后面的括号，[2][XX]来访问括号里面的内容
+
+### dictornary
+* 把key和value对应
+* 只能使用不可变的作为key，但是value都可以
+* d = {key : value1 , key2 : value2}
+* 已经成对的key和value不会进行排序
+* call里面的key就会显示他的value，操作都是通过key来进行的
+* 用.item来访问
+
+### sequence
+* 主要是判断这里面有没有东西和索引操作
+* 索引可以使用负数，从后面开始，-1是最后一个，以此类推
+* 选择一段的时候用冒号进行分割，也可以用负数
+* 可以用两个冒号表示步长
+
+### set
+* 没有顺序，更重视出现的次数
+
+### 字符串还有好多自己操作的方法
+
+## 面向对象
+
+### self
+* **类方法**和普通的函数的区别，多了一个参数在最开头
+* 但是不用在调用这个函数的时候给这个参数赋值
+* 相当于c++里面的this
+
+### 类
+* 通过class创建一个类
+* 之后是缩进的语块
+* 创建的时候是后面加一个括号
+
+### 方法
+创建一个带self参数的方法，虽然say_hi不需要参数，但是还是需要一个self参数
+```
+class Person:
+    def say_hi(self):
+        print('Hello, how are you?')
+
+p = Person()
+p.say_hi()
+```
+```
+$ python oop_method.py
+Hello, how are you?
+```
+
+### init 方法（类里面的一个方法）
+* 会在类的对象被实例化的时候立刻运行
+* 可以对我的类进行初始化
+```
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def say_hi(self):
+        print('Hello, my name is', self.name)
+
+p = Person('Swaroop')
+p.say_hi()
+```
+
+
+### 变量
+* 类变量：可以被这个类的所有实例访问，所以访问这个变量的时候用ClassName.ClassVariable。也可以用self.\__class__.population来访问
+* 对象变量：独立的实例拥有的 objectName.ObjectVariable
+* 当一个对象变量与一个类变量名称相同时，类变量将会被隐藏。
+* 如果一个方法属于类，可以用@classmethod来标记为类方法（这个@也可以定义静态方法staticmethod）
+* 所有类成员都是公开的，如果在前面加两个下划线会编程private的
+* 实例方法的参数是self。类方法的参数是cls（不是self）。静态方法是和类有关，但是不需要引用类或者实例，比如调整环境变量
+
+### 继承
+* 在定义类的时候在后面加个括号里面是继承的别的类
+* 基类的初始化不会自动调用，用的话需要自己调用
+* 多重继承的时候调用的是子类型的方法
+
+```
+# coding=UTF-8
+
+class SchoolMember:
+    '''代表任何学校里的成员。'''
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        print('(Initialized SchoolMember: {})'.format(self.name))
+
+    def tell(self):
+        '''告诉我有关我的细节。'''
+        print('Name:"{}" Age:"{}"'.format(self.name, self.age), end=" ")
+
+
+class Teacher(SchoolMember):
+    '''代表一位老师。'''
+    def __init__(self, name, age, salary):
+        SchoolMember.__init__(self, name, age)
+        self.salary = salary
+        print('(Initialized Teacher: {})'.format(self.name))
+
+    def tell(self):
+        SchoolMember.tell(self)
+        print('Salary: "{:d}"'.format(self.salary))
+
+
+class Student(SchoolMember):
+    '''代表一位学生。'''
+    def __init__(self, name, age, marks):
+        SchoolMember.__init__(self, name, age)
+        self.marks = marks
+        print('(Initialized Student: {})'.format(self.name))
+
+    def tell(self):
+        SchoolMember.tell(self)
+        print('Marks: "{:d}"'.format(self.marks))
+
+t = Teacher('Mrs. Shrividya', 40, 30000)
+s = Student('Swaroop', 25, 75)
+
+# 打印一行空白行
+print()
+
+members = [t, s]
+for member in members:
+    # 对全体师生工作
+    member.tell()
+```
+
+## 输入和输出
+### 用户输入输出：input
+### 文件
+* 可以用open，read，readline，write等方法调用
+
+### Pickle
+* 标准模块
+* 将任何纯python对象储存到一个文件中
+
+### unicode
+* unicode的字符串转换成可以被发送和接受的模式
+* #encoding=utf-8 放在程序顶端
+
+## 异常
+* 可以通过try...except来处理异常（except里面是异常的名称）
+```
+try:
+    text = input('Enter something --> ')
+except EOFError:
+    print('Why did you do an EOF on me?')
+except KeyboardInterrupt:
+    print('You cancelled the operation.')
+else:
+    print('You entered {}'.format(text))
+    ```
+
+### 抛出异常
+* 必须是在exception里面的异常
+* 使用raise来引发一个异常里面东西，其他工作还能正常运行
+
+### try..finally
+* 确保被正常关闭，无论是否会发生异常东西都会关闭
+
+### with
+* 和finally一样都是释放异常的方法
+
+## 标准库
+* sys模块，命令行参数
+* 日志
+
+## 其他
+* 一个函数返回两个不同的值：用一个tuple
