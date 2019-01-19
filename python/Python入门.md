@@ -374,3 +374,9 @@ with open("x.txt") as f:
 
     do something with data
     ```
+
+# 进阶？
+## 多线程
+* 同时处理不同的程序
+* 两个标准库，thread和threading
+* 线程优先队列Queue
