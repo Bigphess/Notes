@@ -17,5 +17,12 @@ while True:
 	if ret:
 		corners, ids , rej= aruco.detectMarkers(frame,dictionary)
 		frame = aruco.drawDetectedMarkers(frame,corners,ids)
+		
+
+		if cv2.waitKey(100)  == ord('q'):
+			cv2.imwrite('aruco/drawarucoqq.jpg',frame)
+			print("successful write")
+			break
+
 		cv2.imshow("try",frame)
 		cv2.waitKey(1)
