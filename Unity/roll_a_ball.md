@@ -15,3 +15,5 @@
 	* 注：**不把相机放在物体的子项是因为物体是个球，这样相机会转，要是物体不是个球的话没有问题**
 * transform.rotate -> 控制物体旋转（乘一个时间常数time.deltaTime就可以随时间旋转）
 * OnTriggerEnter（Collider other），检测碰撞，如果碰撞物体的tag是string里面的值，则把active设置为false
+	* Triggers are a special type of collider. They make an object intangible, so it looks like it can’t touch other objects. 
+	
