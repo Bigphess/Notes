@@ -45,12 +45,24 @@
 
 
 # Omnidirectional Cameara Calibration
+[omi camera calibration](https://docs.opencv.org/4.0.1/dd/d12/tutorial_omnidir_calib_main.html)
+## calibration
+* 注意使用的时候要使用特定的calibration（omnidir）
 ## 还原相机图片
 * undistortImage
 	* 原图
 	* 想得到的perspective校准的结果
 	* 相机参数K，D，xi
+		* The xi is a single value variable of Mei's model
 	* KNew and new_size are the camera matrix and image size for rectified image.
 		* Knew应该谨慎选择，并且根据相机
 		* 官方有推荐的Knew
 	* 校正的类型
+
+# 结果存在xml里面
+
+
+# 实践
+## 使用系统自带图片的相机的标定实践
+* 使用下载好的标定板（棋盘），拍摄图片，不少于3张，10到20张左右（/samples/data/left01-12.jpg)
+    * 因为是系统给好的图片，所以标定出来是sample里面相机的数据
