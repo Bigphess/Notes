@@ -15,8 +15,8 @@ for functional programming in 2018 Tokyo Tech
 ~学了开始的一部分~
 * arco识别
 * 相机校准
- * 普通相机
- * 全景相机
+    * 普通相机
+    * 全景相机
 ### cppPr
 C++学习资料
 ### python
