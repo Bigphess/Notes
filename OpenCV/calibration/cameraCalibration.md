@@ -45,9 +45,13 @@
 
 
 # Omnidirectional Cameara Calibration
-[omi camera calibration](https://docs.opencv.org/4.0.1/dd/d12/tutorial_omnidir_calib_main.html)
+[omi camera calibration](  )
 ## calibration
 * 注意使用的时候要使用特定的calibration（omnidir）
+* [使用时遇到错误信息](https://stackoverflow.com/questions/34355059/opencv-python-how-to-format-numpy-arrays-when-using-calibration-functions)
+* 初始化objp的时候大小应该是（1，格子大小，3）
+* 具体代码在 CaliCodeOmni.py
+
 ## 还原相机图片
 * undistortImage
 	* 原图
@@ -57,9 +61,31 @@
 	* KNew and new_size are the camera matrix and image size for rectified image.
 		* Knew应该谨慎选择，并且根据相机
 		* 官方有推荐的Knew
+		* new_size需要强调这个参数，需要是tuple类型的（我也不知道为啥）
 	* 校正的类型
 
-# 结果存在xml里面
+# 结果存在json里面。
+```
+cameraMat = mtx.tolist()
+disCo = dist.tolist()
+
+time = time.asctime( time.localtime(time.time()))
+cameraMatric = {"rows":3,"cols":3,"data":cameraMat}
+distortion = {"rows":1,"cols":4,"data":disCo} 
+havetry = {"xi":324}
+wholeData = {"calibration time":time,"cameraMatric":cameraMatric,"distortion co":distortion,"try":havetry}
+# wholeData = [time,cameraMatric]
+print(wholeData)
+with open("logicool_calibration.json","w",encoding = "utf-8") as f:
+	f.write(json.dumps(wholeData,indent = 2))
+# print(wholeData)
+
+with open("logicool_calibration.json","r") as f:
+	df = json.load(f)
+
+print(df["calibration time"])
+print(type(df["cameraMatric"]["data"]))
+```
 
 
 # 实践
