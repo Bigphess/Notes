@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.1)  1 FEB 2019 11:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.11.1)  4 FEB 2019 15:25
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -542,30 +542,75 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 150.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/usr/local/texlive/2018basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (/
-usr/local/texlive/2018basic/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-) [2] [3] [4] [5] (./quiz#14.aux) ) 
+{/usr/local/texlive/2018basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 159--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--164
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 176--179
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 190--200
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--200
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--200
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 205--211
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--211
+
+ []
+
+[5] (./quiz#14.aux) ) 
 Here is how much of TeX's memory you used:
- 14267 strings out of 494091
- 270381 string characters out of 6163523
- 328957 words of memory out of 5000000
- 17673 multiletter control sequences out of 15000+600000
- 12445 words of font info for 49 fonts, out of 8000000 for 9000
+ 13647 strings out of 494091
+ 264399 string characters out of 6163523
+ 304596 words of memory out of 5000000
+ 17058 multiletter control sequences out of 15000+600000
+ 12455 words of font info for 48 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 55i,11n,54p,436b,1522s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018basic/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018basic/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018basic/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018basic/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018basic
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018ba
-sic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018
-basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on quiz#14.pdf (5 pages, 77873 bytes).
+ 55i,11n,54p,586b,240s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018basic/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018basic/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018basic/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018basic/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018basic/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018basic/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018basic/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2018basic/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018basi
+c/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on quiz#14.pdf (5 pages, 115675 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 63 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -156,12 +156,11 @@
 Consider a configuration model network that has vertices of degree 1, 2, and 3 only, in fractions p1, p2 and p3, respectively
 
 \subsection*{Answer 1}
-
-
-\begin{python}
-
-\end{python}
-
+In fraction p1, if we want the degree distribution equals to 1, we must only use the vertices of degree 1, and the degree distribution will be 1 forever.\\
+\\
+In fraction p2, if we want the degree distribution equals to 2, the number of vertice(degree 1) must equals to the number of vertice(degree3) and the number of vertice(degree 2) can be any number.\\
+\\
+In fraction p3, same to the first situation, if we want the degree distribution equals to 3, we must only use the vertices of degree 3, and the degree distribution will be 3 forever.\\
 
 \end{homeworkProblem}
 \pagebreak
@@ -174,6 +173,9 @@ Consider a configuration model network that has vertices of degree 1, 2, and 3 o
 Find the value of the critical vertex occupation probability $\phi_{c}$ at which site percolation take place
 
 \subsection*{Answer 2}
+$\displaystyle \phi_{c} = \frac{<k>}{<k^2> - <k>} = \frac{sum(z)/len(z)}{sum(z^2)/len(z) - sum(z)/len(z)} = \frac{sum(z)}{sum(z^2) - sum(z)} = \frac{p_{1}+2p_{2}+3p_{3}}{2p_{2}+6p_{3}}$\\
+\\
+If p1,p2 and p3 must exist(not equal to 0), to make the $\phi_{c}$ minimum, we need to set p1 to 1, p2 to 1 and the final result is 0.540.
 
 \end{homeworkProblem}
 \pagebreak
@@ -185,9 +187,14 @@ Find the value of the critical vertex occupation probability $\phi_{c}$ at which
 Show that there is no giant cluster for any value of the occupation probability $\phi$ if $p_{1} > 3p_{3}$. Why does this result not depend on $p_{2}$?
 
 \subsection*{Answer 3}
-
-
-
+In problem 2 we can see that :\\
+$\displaystyle \phi_{c} = \frac{<k>}{<k^2> - <k>} = \frac{sum(z)/len(z)}{sum(z^2)/len(z) - sum(z)/len(z)} = \frac{sum(z)}{sum(z^2) - sum(z)} = \frac{p_{1}+2p_{2}+3p_{3}}{2p_{2}+6p_{3}}$\\
+\\
+In this equation, make $p_{2} = 10 - p_{1} - p_{3}$\\
+\\
+So $\displaystyle \phi_{c} = \frac{20 - p_{1} + p{3}}{20 - 2p_{1} + 4p_{3}}$. In this equation, if $p_{1} = 3p_{3}$, $\phi_{c} = 1$, which means the model will be a giant cluster if no vertices is removed. If $p_{1} > 3p_{3}$, $\phi_{c} > 1$, so there is no giant cluster for any value of $\phi$.\\
+\\
+This result not depend on $p_{2}$ because $p_{2}$ can be represented as the combination of $p_{1}$ and $p_{3}$, so it will not appear in the equation of the final result.
 \end{homeworkProblem}
 \pagebreak
 
@@ -195,8 +202,12 @@ Show that there is no giant cluster for any value of the occupation probability 
 \begin{homeworkProblem}
 Please explain why your friends have more friends than you do
 \subsection*{Answer 4}
-
-
+There are two distributions of friendship, one is friend of individuals(the normal number of friends we count) and the other is friends of friends(some of the same individuals over and over). When we use calculate the friends of friends, many people contribute to this distribution more than once. So it is a dfifferent distribution from the number of friends among individuals.\\
+\\
+In general, if the original distribution has $n$ individuals with $x_{i}$ friends, the mean is $\sum x_{i}/n$. However, the distribution of friends has $\sum x_{i}$ cases (for all of the friends) and they have a total of $\sum x_{i}^2$ friends, since each individual is counted as many times as she or he has friends, $x_{i}$, and that individual has $\sum x_{i}$ friends. Thus, the mean number of friends among the friends is $\sum x_{i}^2/\sum x_{i}$, it is bigger(or equal) than $\sum x_{i}$ according to the slides, which shows that the mean among friends is always at
+least as great as the mean among individuals.$[1]$\\
+\\
+$[1]$ \textit{Feld, S. L. (1991). Why your friends have more friends than you do. American Journal of Sociology, 96(6), 1464-1477.}
 
 \end{homeworkProblem}
 \pagebreak
