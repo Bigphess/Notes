@@ -21,6 +21,10 @@ for functional programming in 2018 Tokyo Tech
 C++学习资料
 ### python
 python学习资料
+### DL
+深度学习深度学习
+* 那本书根本看不下去好吗
+* CS231笔记
 
 ## lab
 研究室相关
