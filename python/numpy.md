@@ -160,6 +160,9 @@ print(a[bool_idx])  # Prints "[3 4 5 6]"
 # We can do all of the above in a single concise statement:
 print(a[a > 2])     # Prints "[3 4 5 6]"
 ```
+
+## boardcast
+### 一点粗浅的理解
 * 直接对array进行操作，被操作的是array里面的数字
 * 使用点乘（dot）操作的是数组    
 * 小贴士：给一维数组转制不会有效果
@@ -168,4 +171,48 @@ print(a[a > 2])     # Prints "[3 4 5 6]"
 	* 如果low rank的是1维或者两个维数相同，那就是他们两个就是compatible
 	* 如果他们在所有的demension都是compatiable的话，就可以broadcast
 	* boardcast之后如果在一个demension上面是1，另一个比1大，那就疯狂复制
-	
+
+### 一点复杂的理解
+* broadcasting是为了方便不同shape的array进行核心运算
+* 规则
+	* 当操作两个array的时候会对他们进行比较（**每一位**），只有两种情况表示兼容
+		* 相等
+		* 其中一个为1
+	* 注意比较的是每一位，两个之中只要有一个是1就可以
+	* (5，)之中的5表示的是最后一位，注意
+
+## axis
+axis(https://zhuanlan.zhihu.com/p/30960190)
+
+## np.sum
+* axis 是表示括号的，从最外面往里从0开始
+	* axis = 0可以理解为给列求和，最后得到一个行向量
+	* axis = 1是给行求和得到一个列向量
+* keepdim 默认值是false，会把多余的括号都删掉
+* shape求出来的每个axis（里面的括号）的个数
+```
+import numpy as np 
+
+a = np.array([1,2,3,4])
+b = np.array([[1,2],[2,3],[3,4]])
+c = np.array([[[1,3],[2,4]],[[1,3],[2,4]],[[1,3],[2,4]]])
+
+print(a, a.shape)
+print(b, b.shape)
+print(c, c.shape)
+```
+结果
+```
+[1 2 3 4] (4,)
+[[1 2]
+ [2 3]
+ [3 4]] (3, 2)
+[[[1 3]
+  [2 4]]
+
+ [[1 3]
+  [2 4]]
+
+ [[1 3]
+  [2 4]]] (3, 2, 2)
+  ```

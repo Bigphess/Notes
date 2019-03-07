@@ -434,3 +434,15 @@ print(x[:,::666666])
 ## 来呀来玩np啊
 ### numpy.zeros(shape, dtype=float, order='C')¶
 * 形状是行乘列，类型，默认的C就是行主导的
+
+## enumerate()函数
+* 把一个可历遍的的数据对象（列表，元祖，字符串）作为一个索引序列，同时列出数据和下标
+* 参数
+    * sequence：需要迭代的序列
+    * opinion-start：下标开始位置
+* 返回值，enumerate对象
+* 一般在for循环中使用，不用自己单独设定i了
+```
+for i,element in enumerate(seq):
+    print i,element
+```

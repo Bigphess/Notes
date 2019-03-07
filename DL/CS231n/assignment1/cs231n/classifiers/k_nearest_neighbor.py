@@ -55,7 +55,7 @@ class KNearestNeighbor(object):
     Inputs:
     - X: A numpy array of shape (num_test, D) containing test data.
 
-    Returns:
+    Returns:返回的也是一个多维数组
     - dists: A numpy array of shape (num_test, num_train) where dists[i, j]
       is the Euclidean distance between the ith test point and the jth training
       point.
@@ -63,7 +63,9 @@ class KNearestNeighbor(object):
     num_test = X.shape[0]
     num_train = self.X_train.shape[0]
     dists = np.zeros((num_test, num_train))
+    # print(X[1])
     for i in range(num_test):
+      # print(i)
       for j in range(num_train):
         #####################################################################
         # TODO:                                                             #
@@ -71,7 +73,19 @@ class KNearestNeighbor(object):
         # training point, and store the result in dists[i, j]. You should   #
         # not use a loop over dimension.                                    #
         #####################################################################
-        pass
+        # L2dist = 0
+        # # 在这张图里操作每个像素，这也太慢了！！！
+        # for k in range(X.shape[1]):
+        #   # 求两个像素之间的距离的平方,这里的train要加self
+        #   L2dist = L2dist + np.square(X[i,k] - self.X_train[j,k])
+        # dists[i,j] = np.sqrt(L2dist)
+        
+        #这里改成了用X[i]直接表示i对应的那行的像素值的和，直接做差（每一项之间），
+        # 平方（每一个，求和（所有项），开方。会快很多！！！！
+
+        dists[i,j] = np.sqrt(np.sum(np.square(X[i] - self.X_train[j])))
+
+        # pass
         #####################################################################
         #                       END OF YOUR CODE                            #
         #####################################################################
@@ -87,13 +101,17 @@ class KNearestNeighbor(object):
     num_test = X.shape[0]
     num_train = self.X_train.shape[0]
     dists = np.zeros((num_test, num_train))
+    # print(self.X_train.shape)
     for i in range(num_test):
       #######################################################################
       # TODO:                                                               #
       # Compute the l2 distance between the ith test point and all training #
       # points, and store the result in dists[i, :].                        #
       #######################################################################
-      pass
+      # axis的位置会决定sum的时候加哪个括号，括号从外往里从0增加
+      # print(self.X_train - X[i,:])
+      dists[i,:] = np.sqrt(np.sum(np.square(self.X_train - X[i,:]),axis = 1))
+      
       #######################################################################
       #                         END OF YOUR CODE                            #
       #######################################################################
@@ -121,7 +139,17 @@ class KNearestNeighbor(object):
     # HINT: Try to formulate the l2 distance using matrix multiplication    #
     #       and two broadcast sums.                                         #
     #########################################################################
-    pass
+    # square会把每一项都平方
+    # 这里求出来的矩阵的大小是500x1，因为是axis = 1，相当于把每行的所有元素求和，然后保存了
+    # dims，所以求出来实际是个列向量
+    d1 = np.sum(np.square(X),axis = 1,keepdims = True)
+    # 大小是1x5000，因为dims默认是false，没有保留括号，拉成了一个行向量
+    d2 = np.sum(np.square(self.X_train),axis = 1)
+    # 把每个点要求的像素值展开，发现就是train上这个行的平方，求和 + test上这个行的平方，求和
+    # 再需要剪去的就是两个矩阵的点乘
+    d3 = -2 * np.dot(X, self.X_train.T)
+    # d1，d2可以广播，因为他们两个的维数可以对上，最后的大小是500x5000
+    dists = np.sqrt(d1 + d2 + d3)
     #########################################################################
     #                         END OF YOUR CODE                              #
     #########################################################################
@@ -140,9 +168,12 @@ class KNearestNeighbor(object):
     - y: A numpy array of shape (num_test,) containing predicted labels for the
       test data, where y[i] is the predicted label for the test point X[i].  
     """
+    # print(dists.min())
+
     num_test = dists.shape[0]
     y_pred = np.zeros(num_test)
     for i in range(num_test):
+
       # A list of length k storing the labels of the k nearest neighbors to
       # the ith test point.
       closest_y = []
@@ -153,7 +184,11 @@ class KNearestNeighbor(object):
       # neighbors. Store these labels in closest_y.                           #
       # Hint: Look up the function numpy.argsort.                             #
       #########################################################################
-      pass
+      # print(np.argsort(dists[i]))
+        # 这里输出的就是分类的结果了，所以范围就是0-9
+        # print(self.y_train[np.argsort(dists[i])[j]])
+      closest_y = self.y_train[np.argsort(dists[i])[:k]]
+      # print(closest_y)
       #########################################################################
       # TODO:                                                                 #
       # Now that you have found the labels of the k nearest neighbors, you    #
@@ -161,7 +196,12 @@ class KNearestNeighbor(object):
       # Store this label in y_pred[i]. Break ties by choosing the smaller     #
       # label.                                                                #
       #########################################################################
-      pass
+      # 这里得到的是预测结束之后的结果(对每一个测试的图片)
+      # 把数组的中数字出现次数变成value，然后把这个值变成index
+      fleuArr = np.bincount(closest_y)
+      # 返回数组中最大值的index
+      # print(np.argmax(fleuArr))
+      y_pred[i] = np.argmax(fleuArr)
       #########################################################################
       #                           END OF YOUR CODE                            # 
       #########################################################################
