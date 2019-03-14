@@ -42,11 +42,25 @@
 
 
 import numpy as np 
+import cv2
 
-a = np.array([1,2,3,4])
-b = np.array([[1,2],[2,3],[3,4]])
-c = np.array([[[1,3],[2,4]],[[1,3],[2,4]],[[1,3],[2,4]]])
+cap = cv2.VideoCapture(0)
+ar_dictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
 
-print(a, np.square(b))
-print(b, b.shape)
-print(c, c.shape)
+while True:
+	ret, frame = cap.read()
+	corners_o, ids_o, _ = cv2.aruco.detectMarkers(frame,ar_dictionary)
+	if corners_o != []:
+		print(corners_o)
+	# else: continue
+	cv2.imshow("try",frame)
+	cv2.waitKey(1)
+	# print(ret)
+
+# a = np.array([1,2,3,4])
+# b = np.array([[1,2],[2,3],[3,4]])
+# c = np.array([[[1,3],[2,4]],[[1,3],[2,4]],[[1,3],[2,4]]])
+
+# print(a, np.square(b))
+# print(b, b.shape)
+# print(c, c.shape)
