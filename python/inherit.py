@@ -23,7 +23,6 @@ class Teacher(SchoolMember):
         SchoolMember.tell(self)
         print('Salary: "{:d}"'.format(self.salary))
 
-
 class Student(SchoolMember):
     '''代表一位学生。'''
     def __init__(self, name, age, marks):
