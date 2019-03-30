@@ -3,13 +3,13 @@
 ### Q3_FP
 for functional programming in 2018 Tokyo Tech
 ### Q4_CG 
- ~ for computer graphics in 2018 Tokyo Tech ~
+ ~for computer graphics in 2018 Tokyo Tech~
 ### Q4_CN 
   for complex network in 2019 Tokyo Tech
  
 ## BookReading
 ### openCV
-~ 学了开始的一部分 ~
+~学了开始的一部分~
 * aruco detection
 * 相机校准(camera calibration)
     * 普通相机
